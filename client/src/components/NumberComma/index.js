@@ -1,5 +1,6 @@
 function NumberComma( num ) {
     // console.log("In currencyComma")
+    // console.log(num);
     var str = num.toString().split('.');
     // console.log(str);
     if (str[0].length >= 4) {

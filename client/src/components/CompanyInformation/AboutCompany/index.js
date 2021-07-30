@@ -2,10 +2,10 @@ import React from 'react'
 import { Row, Col, Accordion, Card, Table } from 'react-bootstrap';
 import './style.scss';
 
-import NumberComma from '../../NumberComma';
+// import NumberComma from '../../NumberComma';
 
 export default function AboutCompany(promps) {
-    // console.log(promps)
+    console.log(promps)
 
     let headQuartersAddress = promps.companyInfo.Address.split(",")
     // console.log("headQuartersAddress");
@@ -36,10 +36,10 @@ export default function AboutCompany(promps) {
             <hr className="myHr" />
             <Row>
                 <Col className="aboutCompany-title">
-                    Employees
+                    Symbol
                 </Col>
                 <Col className="text-right aboutCompany-contents">
-                    {NumberComma(promps.companyInfo.FullTimeEmployees)}
+                    {promps.companyInfo.Symbol?promps.companyInfo.Symbol:""}
                 </Col>
             </Row>
             <hr className="myHr" />
