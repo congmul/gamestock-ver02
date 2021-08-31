@@ -57,7 +57,7 @@ export default function Nav() {
                             to="/gamestock/user"
                             className={location.pathname === "/gamestock/user" ? "nav-link active" : "nav-link"}
                         >
-                            user
+                            Account
                     {/* maybe label with username, "profile," etc? */}
                         </Link>
                     </li>
@@ -66,7 +66,7 @@ export default function Nav() {
                             to="/gamestock/trade"
                             className={location.pathname === "/gamestock/trade" ? "nav-link active" : "nav-link"}
                         >
-                            trade
+                            Trade
                         </Link>
                     </li>
                     <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -74,7 +74,7 @@ export default function Nav() {
                             to="/gamestock/search"
                             className={location.pathname === "/gamestock/search" ? "nav-link active" : "nav-link"}
                         >
-                            search
+                            Search
                         </Link>
                     </li>
                 </ul>
@@ -94,7 +94,7 @@ export default function Nav() {
                             <Link className={location.pathname === "#" ? "nav-link active" : "nav-link"} to="#" >Hello, {nickname}</Link>
                         </li>
                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                            <Link className={location.pathname === "/gamestock/" ? "nav-link active" : "nav-link"} to="/gamestock/" onClick={handleLogout} variant="link">logout</Link>
+                            <Link className={location.pathname === "/gamestock/" ? "nav-link active" : "nav-link"} to="/gamestock/" onClick={handleLogout} variant="link">Logout</Link>
                         </li>
                     </ul>
 

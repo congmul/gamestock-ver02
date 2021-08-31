@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [See the deployment](https://evening-temple-09944.herokuapp.com/)  
-[Explore the docs](https://github.com/seattletrade/gamestock)
+[Explore the docs](https://github.com/congmul/gamestock-ver02)
 
 ---
 
@@ -14,7 +14,7 @@
 - [About the Project](#About-the-Project)
 - [Usage](#Usage)
 - [Getting Started](#Getting-Started)
-  - [Installation](#Installation)
+- [Installation](#Installation)
 - [Contributing](#Contributing)
 - [License](#License)
 - [Questions](#Questions)
