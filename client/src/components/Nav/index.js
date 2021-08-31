@@ -4,6 +4,7 @@ import "./style.scss"
 import Logo from "../Logo";
 import { useAuth } from '../../contexts/AuthContext'
 import API from '../../utils/API';
+import { capitalizeFirstLetter } from '../../utils/helpers';
 
 
 
@@ -11,7 +12,7 @@ export default function Nav() {
     const location = useLocation();
     const [error, setError] = useState();
     const [nickname, setNickname] = useState();
-    const { currentUser, logout, signup, login } = useAuth();
+    const { currentUser, logout } = useAuth();
     const history = useHistory()
 
     useEffect(() => {
@@ -58,7 +59,6 @@ export default function Nav() {
                             className={location.pathname === "/gamestock/user" ? "nav-link active" : "nav-link"}
                         >
                             Account
-                    {/* maybe label with username, "profile," etc? */}
                         </Link>
                     </li>
                     <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -91,7 +91,7 @@ export default function Nav() {
                     :
                     <ul className="navbar-nav mr-0">
                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                            <Link className={location.pathname === "#" ? "nav-link active" : "nav-link"} to="#" >Hello, {nickname}</Link>
+                            <Link className={location.pathname === "#" ? "nav-link active" : "nav-link"} to="#" >Hello, {nickname?capitalizeFirstLetter(nickname):<></>}</Link>
                         </li>
                         <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                             <Link className={location.pathname === "/gamestock/" ? "nav-link active" : "nav-link"} to="/gamestock/" onClick={handleLogout} variant="link">Logout</Link>
