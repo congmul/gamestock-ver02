@@ -102,7 +102,7 @@ export default function Search() {
                 </div>
             )
                 :
-                (<></>)
+                (<h3><i className="fas fa-spinner fa-spin"></i> Loading Search bar....</h3>)
             }
             {isSymbol ? (
                 <>
