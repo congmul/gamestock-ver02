@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage";
 import Userpage from "./pages/Userpage";
 import Infopage from "./pages/Infopage";
 import Tradepage from "./pages/Tradepage";
+import Searchpage from './pages/Searchpage';
 import Notfound from "./pages/Notfoundpage";
 import Container from "./components/Container";
 import Nav from "./components/Nav";
@@ -67,7 +68,8 @@ function App() {
                   <ForgotPassword />
                 </UserFormContainer>
               </Route>
-              <PrivateRoute exact path="/gamestock/search" component={Infopage} />
+              <PrivateRoute exact path="/gamestock/search" component={Searchpage} />
+              {/* <PrivateRoute exact path="/gamestock/search" component={Infopage} /> */}
               <PrivateRoute exact path="/gamestock/user" component={Userpage} />
               <PrivateRoute exact path="/gamestock/trade" component={Tradepage} />
               <Route>
