@@ -11,7 +11,6 @@ import API from "../utils/API";
 
 import ChartCompanyinfoMain from '../components/ChartCompanyinfoMain';
 import CompanyInformation from '../components/CompanyInformation';
-import CompanyNews from '../components/CompanyNews';
 import Autocomplete from "react-autocomplete";
 
 export default function Search() {
@@ -108,7 +107,6 @@ export default function Search() {
                 <>
                     <ChartCompanyinfoMain companyName={searchResult["companyName"]} symbol={searchResult["symbol"]} />
                     <CompanyInformation symbol={searchResult["symbol"]} />
-                    <CompanyNews symbol={searchResult["symbol"]} />
                 </>
             ) : (<div style={{ textAlign: "center", color: "white", paddingTop: "100px" }}>Search by Company name or Symbol</div>)}
 
