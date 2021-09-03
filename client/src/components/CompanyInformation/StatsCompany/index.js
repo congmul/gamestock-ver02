@@ -1,13 +1,10 @@
 import React from 'react'
-import { Row, Col, Accordion, Card, Table, Button, OverlayTrigger, Tooltip, Overlay } from 'react-bootstrap';
+import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import './style.scss';
 
 export default function StatsCompany(promps) {
 
     let resultMktCap = calculatingNumberUnit(promps.companyInfo["MarketCapitalization"]);
-
-
-
 
     function calculatingNumberUnit(rawMktCap) {
         let k = 1000;
