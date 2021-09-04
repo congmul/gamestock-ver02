@@ -45,11 +45,12 @@ function App() {
     <Router>
       <AuthProvider>
         <FakeCurrentTimeContext.Provider value={fakeCurrentTime}>
+          {/* Display Current Time */}
           <div style={{ zIndex: 10, fontSize: "11px", color: "white", textAlign: "right", paddingRight: "25px", position: "fixed", top: 70, right: 0 }}>
             {fakeCurrentTime.substring(0, 25)}
           </div>
+          <Nav />
           <Container>
-            <Nav />
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route exact path="/gamestock/" component={Homepage} />
