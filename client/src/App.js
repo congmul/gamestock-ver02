@@ -23,10 +23,11 @@ import FakeCurrentTimeContext from './contexts/FakeCurrentTimeContext'
 
 function App() {
 
+  // Set Fake Current Time by Todays time and Interval.
+  // It will call GetFakeDate() every second.
   const [fakeCurrentTime, setFakeCurrentTime] = useState("");
   useEffect(() => {
     setFakeCurrentTime(GetFakeDate().toString());
-    // console.log(GetFakeDate().toString())
   }, [])
 
   useEffect(() => {
@@ -37,9 +38,7 @@ function App() {
   }, [fakeCurrentTime])
 
   function currentFakeTime() {
-    // console.log(GetFakeDate().toString())
     setFakeCurrentTime((new Date(Date.parse(fakeCurrentTime) + 1000)).toString());
-
   }
 
   return (
