@@ -1,4 +1,5 @@
-import GetFakeDate from '../GetFakeDate';
+// import GetFakeDate from '../GetFakeDate';
+import { GetFakeDate } from '../../utils/helpers';
 
 // ONE MONTH STOCK DATA
 function GetOneMonthMarketData(totalDailyStockState, increaseFAKETime, currentFakeTime) {

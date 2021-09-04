@@ -1,4 +1,5 @@
-import GetFakeDate from '../GetFakeDate';
+// import GetFakeDate from '../GetFakeDate';
+import { GetFakeDate } from '../../utils/helpers';
 
 function GetIntraDayMarketDataForFirstGraph(oneDayStockState, increaseFAKETime, currentFakeTime) {
     // It is inside IntraDayMarketDATACall func on info PAGE

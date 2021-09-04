@@ -14,7 +14,8 @@ import GetOneMonthGraphData from './GetOneMonthGraphData';
 import GetThreeMonthGraphData from './GetThreeMonthGraphData';
 import GetOneYearGraphData from './GetOneYearGraphData';
 import GetAllGraphData from './GetAllGraphData';
-import NumberComma from '../NumberComma'
+// import NumberComma from '../NumberComma'
+import { NumberComma } from '../../utils/helpers'
 import API from "../../utils/API";
 
 export default function ChartUserInfo() {

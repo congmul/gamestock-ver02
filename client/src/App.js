@@ -17,7 +17,8 @@ import ForgotPassword from './components/ForgotPassword'
 import { AuthProvider } from './contexts/AuthContext'
 import UserFormContainer from './components/UserFormContainer'
 import PrivateRoute from './PrivateRoute'
-import GetFakeDate from './components/GetFakeDate'
+// import GetFakeDate from './components/GetFakeDate'
+import { GetFakeDate } from './utils/helpers'
 import FakeCurrentTimeContext from './contexts/FakeCurrentTimeContext'
 
 function App() {

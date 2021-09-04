@@ -1,4 +1,5 @@
-import GetFakeDate from '../GetFakeDate';
+// import GetFakeDate from '../GetFakeDate';
+import { GetFakeDate } from '../../utils/helpers';
 
 export default function GetOneWeekMarketData(oneWeekStockState, increaseFAKETime, currentFakeTime) {
     // console.log("Inside GetOneWeekMarketData function")
