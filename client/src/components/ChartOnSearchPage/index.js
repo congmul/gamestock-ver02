@@ -15,7 +15,7 @@ import AnimatedNumber from "animated-number-react";
 import FakeCurrentTimeContext from '../../contexts/FakeCurrentTimeContext'
 
 import API from '../../utils/API'
-import ChartCompanyInfo from '../ChartCompanyInfo'
+// import ChartCompanyInfo from '../ChartCompanyInfo'
 import Chart from './Chart';
 
 import { GetIntraDayMarketDataForFirstGraph, GetIntraDayMarketData } from '../GetIntraDayMarketData'
