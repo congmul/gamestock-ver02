@@ -42,9 +42,10 @@ function dataProcessing(oneDayStockState, increaseFAKETime, currentFakeTime) {
     let currentOpenValue = [];
     let currentVolumeValue = [];
 
-    let days = 1;
+    let days = 0;
     // 86400000 sec (= 1 day )
-    let aDayTomiliSec = 86400000;
+    let aDayTomiliSec = 0;
+    // let aDayTomiliSec = 86400000;
 
     const fakeDate = GetFakeDate();
     // console.log("FAKE DATE")
@@ -64,7 +65,10 @@ function dataProcessing(oneDayStockState, increaseFAKETime, currentFakeTime) {
                 date.substring(11, 16) === "06:15" || date.substring(11, 16) === "06:30" || date.substring(11, 16) === "06:45" ||
                 date.substring(11, 16) === "07:00" || date.substring(11, 16) === "07:15" || date.substring(11, 16) === "07:30" ||
                 date.substring(11, 16) === "07:45" || date.substring(11, 16) === "08:00" || date.substring(11, 16) === "08:15" ||
-                date.substring(11, 16) === "08:30" || date.substring(11, 16) === "08:45" || date.substring(11, 16) === "09:00"
+                date.substring(11, 16) === "08:30" || date.substring(11, 16) === "08:45" || date.substring(11, 16) === "09:00" ||
+                date.substring(11, 16) === "18:15" || date.substring(11, 16) === "18:30" || date.substring(11, 16) === "18:45" ||
+                date.substring(11, 16) === "19:00" || date.substring(11, 16) === "19:15" || date.substring(11, 16) === "19:30" ||
+                date.substring(11, 16) === "19:45" || date.substring(11, 16) === "20:00" 
             ) {
                 // console.log("Pass Too early data")
             } else {
@@ -77,13 +81,17 @@ function dataProcessing(oneDayStockState, increaseFAKETime, currentFakeTime) {
         // get Current data for Graph
         if (new Date(Date.parse(date)).getDate() === new Date(Date.parse(currentFakeTime)).getDate() - days &&
             Date.parse(date) < (Date.parse(currentFakeTime) - aDayTomiliSec * days)) {
+                // console.log(date.substring(11, 16));
             if (date.substring(11, 16) === "04:15" || date.substring(11, 16) === "04:30" ||
                 date.substring(11, 16) === "04:45" || date.substring(11, 16) === "05:00" || date.substring(11, 16) === "05:15" ||
                 date.substring(11, 16) === "05:30" || date.substring(11, 16) === "05:45" || date.substring(11, 16) === "06:00" ||
                 date.substring(11, 16) === "06:15" || date.substring(11, 16) === "06:30" || date.substring(11, 16) === "06:45" ||
                 date.substring(11, 16) === "07:00" || date.substring(11, 16) === "07:15" || date.substring(11, 16) === "07:30" ||
                 date.substring(11, 16) === "07:45" || date.substring(11, 16) === "08:00" || date.substring(11, 16) === "08:15" ||
-                date.substring(11, 16) === "08:30" || date.substring(11, 16) === "08:45" || date.substring(11, 16) === "09:00"
+                date.substring(11, 16) === "08:30" || date.substring(11, 16) === "08:45" || date.substring(11, 16) === "09:00" ||
+                date.substring(11, 16) === "18:15" || date.substring(11, 16) === "18:30" || date.substring(11, 16) === "18:45" ||
+                date.substring(11, 16) === "19:00" || date.substring(11, 16) === "19:15" || date.substring(11, 16) === "19:30" ||
+                date.substring(11, 16) === "19:45" || date.substring(11, 16) === "20:00" 
             ) {
                 // console.log("Pass Too early data")
             } else {

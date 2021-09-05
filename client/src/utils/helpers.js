@@ -34,7 +34,28 @@ export function GetFakeDate() {
   // ex) 2021 / 9 / 4 / 13:07:00
   let thisYear = (new Date().getFullYear()).toString();
   let thisMonth = (new Date().getMonth()).toString();
-  let today = (new Date().getDate()).toString();
+  // Get Stockdata from previous day.
+  let today = (new Date().getDate() - 1).toString();
+  let hour = 13;
+  let minute = 7;
+  let second = 0;  
   
-  return (new Date(thisYear, thisMonth, today, 13, 7, 0));
+  // During Weekend, Display Stock data on last Friday.
+  // SUN: 1 / MON: 2 / TUE: 3 / ..... / SAT: -1 
+  let currentDay = (new Date().getDay() - 1).toString();
+//   console.log(currentDay);
+  if(currentDay === '-1'){
+    today = parseInt(today) - 1;
+    today = today.toString();
+    hour = 18;
+    minute = 0;
+  }
+  if(currentDay === '1'){
+    today = parseInt(today) - 2;
+    today = today.toString();
+    hour = 18;
+    minute = 0;
+  }
+//   console.log(today);
+  return (new Date(thisYear, thisMonth, today, hour, minute, second));
 }
