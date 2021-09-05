@@ -25,7 +25,7 @@ import { GetFakeDate } from './utils/helpers'
 import FakeCurrentTimeContext from './contexts/FakeCurrentTimeContext'
 
 function App() {
-
+  const [weekend, setWeekend] = useState(false);
   // Set Fake Current Time by Todays time and Interval.
   // It will call GetFakeDate() every second.
   const [fakeCurrentTime, setFakeCurrentTime] = useState("");
@@ -37,6 +37,13 @@ function App() {
     const intervalFakeTime = setInterval(() => {
       currentFakeTime();
     }, 1000)
+
+    // If the time is 18:00, Stop the interval time.
+     if(fakeCurrentTime.substring(16, 21) === '18:00'){
+      clearInterval(intervalFakeTime);
+      setWeekend(true);
+    }
+
     return () => clearInterval(intervalFakeTime);
   }, [fakeCurrentTime])
 
@@ -50,7 +57,7 @@ function App() {
         <FakeCurrentTimeContext.Provider value={fakeCurrentTime}>
           {/* Display Current Time */}
           <div style={{ zIndex: 10, fontSize: "11px", color: "white", textAlign: "right", paddingRight: "25px", position: "fixed", top: 70, right: 0 }}>
-            {fakeCurrentTime.substring(0, 25)}
+            {weekend? "Market close on the Weekend" : fakeCurrentTime.substring(0, 25)}
           </div>
           <Nav />
           <Container>
