@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Signuppage from "./pages/Signuppage";
-import Loginpage from './pages/Loginpage'
+
 import Homepage from "./pages/Homepage";
 import Userpage from "./pages/Userpage";
-import Infopage from "./pages/Infopage";
 import Tradepage from "./pages/Tradepage";
 import Searchpage from './pages/Searchpage';
 import Notfound from "./pages/Notfoundpage";
+
 import Container from "./components/Container";
+
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+
+import UserFormContainer from './components/UserFormContainer'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import ForgotPassword from './components/ForgotPassword'
+
 import { AuthProvider } from './contexts/AuthContext'
-import UserFormContainer from './components/UserFormContainer'
 import PrivateRoute from './PrivateRoute'
-// import GetFakeDate from './components/GetFakeDate'
+
+// Set FakeDate and Set Context with the FakeDate
 import { GetFakeDate } from './utils/helpers'
 import FakeCurrentTimeContext from './contexts/FakeCurrentTimeContext'
 
@@ -70,7 +73,6 @@ function App() {
                 </UserFormContainer>
               </Route>
               <PrivateRoute exact path="/gamestock/search" component={Searchpage} />
-              {/* <PrivateRoute exact path="/gamestock/search" component={Infopage} /> */}
               <PrivateRoute exact path="/gamestock/user" component={Userpage} />
               <PrivateRoute exact path="/gamestock/trade" component={Tradepage} />
               <Route>

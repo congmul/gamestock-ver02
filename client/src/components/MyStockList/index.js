@@ -6,7 +6,7 @@ import API from '../../utils/API';
 
 import { useAuth } from '../../contexts/AuthContext';
 import FakeCurrentTimeContext from '../../contexts/FakeCurrentTimeContext'
-import NumberComma from '../NumberComma';
+// import { NumberComma } from '../../utils/helpers';
 
 import StockChart from './StockChart';
 import stockDataProcessing from './GetMarketDataForStockList';
