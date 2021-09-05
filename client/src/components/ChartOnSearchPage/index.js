@@ -1,3 +1,13 @@
+/*
+    1. Get Company name and symbol from Search Page
+    2. Call GetMarketData() with Company name and symbol to get Stock data.
+    3. Store all kinds of Market data - Intraday / OneWeek/ TotalDaily(20years) Stock data.
+    4. Process Stock data into Graph Data Form.
+    5. Pass the GraphData to Plotyl Graph
+
+    * Use context to get FakeDate.
+*/
+
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from 'react-bootstrap';
@@ -6,6 +16,7 @@ import FakeCurrentTimeContext from '../../contexts/FakeCurrentTimeContext'
 
 import API from '../../utils/API'
 import ChartCompanyInfo from '../ChartCompanyInfo'
+import Chart from './Chart';
 
 import { GetIntraDayMarketDataForFirstGraph, GetIntraDayMarketData } from '../GetIntraDayMarketData'
 import GetOneWeekMarketData from '../GetOneWeekMarketData'
@@ -14,7 +25,7 @@ import GetCurrentValueForLive from '../GetCurrentValueForLive'
 import {useAuth} from '../../contexts/AuthContext'
 import {useHistory } from "react-router-dom";
 
-export default function Infopage(promps) {
+export default function ChartOnSearchPage(promps) {
     const [propsState, setPropsState] = useState({ "symbol": "", "companyName": "" });
 
     // Take FakeCurrentTime from App.js by Context
@@ -33,9 +44,6 @@ export default function Infopage(promps) {
     const [intraDayStockState, setIntraDayStockState] = useState();
     const [oneWeekStockState, setOneWeekStockState] = useState();
     const [totalDailyStockState, setTotalDailyStockState] = useState();
-
-    // // Store Company info
-    // const [companyInfo, setCompanyInfo] = useState();
 
     // Button Style state
     const btnWithOutline = "btn btn-outline-primary btn-sm pt-0 pb-0 pl-2 pr-2";
@@ -82,7 +90,7 @@ export default function Infopage(promps) {
     const { currentUser} = useAuth();
     const history = useHistory();
 
-    function handleClick(event){
+    function onClickWatchBtn(event){
         event.preventDefault();
         API.saveOnWatchList({
             email: currentUser.email,
@@ -101,7 +109,7 @@ export default function Infopage(promps) {
             setIsOnWatchList(watchArr)            
         })
     }
-    // Fetch Martke Data from API (Alpha Vantage) 
+    // Fetch Market Data from API (Alpha Vantage) 
     function GetMarketData(userInput) {
         // console.log(userInput);
         let symbol = userInput.symbol;
@@ -398,13 +406,13 @@ export default function Infopage(promps) {
                                     to="/gamestock/trade"
                                     className={location.pathname === "/gamestock/trade" ? "nav-link active" : "nav-link"}
                                 >
-                                    <button type="button" className="btn btn-danger"> trade</button>
+                                    <button type="button" className="btn btn-danger" style={{ backgroundColor: "#FD0000", color: "white" }}> trade</button>
                                 </Link>
                                 <Link
                                     to="/gamestock/user"
                                     className={location.pathname === "/gamestock/user" ? "nav-link active" : "nav-link"}
                                 >
-                                    <button disabled={isOnWatchList.includes(ticker)} type="button" className="btn btn-danger" onClick={handleClick}>{isClicked || isOnWatchList.includes(ticker) ? "watching" : "watch"} </button>
+                                    <button disabled={isOnWatchList.includes(ticker)} type="button" className="btn btn-danger" style={{ backgroundColor: "#FD0000", color: "white" }} onClick={onClickWatchBtn}>{isClicked || isOnWatchList.includes(ticker) ? "watching" : "watch"} </button>
                                 </Link>
                             </Col>
                         </Row>
@@ -413,8 +421,9 @@ export default function Infopage(promps) {
 
                     </div>
 
-                    <ChartCompanyInfo traceState={traceState} volumeState={volumeState} range={rangeState} typeState={typeState} visible={visibleState} />
-
+                    {/* Call & Display Stock Chart */}
+                    {/* <ChartCompanyInfo traceState={traceState} volumeState={volumeState} range={rangeState} typeState={typeState} visible={visibleState} /> */}
+                    <Chart traceState={traceState} volumeState={volumeState} range={rangeState} typeState={typeState} visible={visibleState} />
                     <Row>
                         <Col className="ml-2 mr-0 pr-0">
                             <button onClick={myFetch} className={button1DState}>1D</button>
