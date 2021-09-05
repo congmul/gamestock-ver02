@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Row, Col, Button } from 'react-bootstrap';
 
-import UserPageAPI from '../../utils/UserPageAPI';
 import API from '../../utils/API';
 
 import { useAuth } from '../../contexts/AuthContext';
 import FakeCurrentTimeContext from '../../contexts/FakeCurrentTimeContext'
-import NumberComma from '../NumberComma';
 
 import StockChart from './StockChart';
 import stockDataProcessing from './GetMarketDataForWatchList';

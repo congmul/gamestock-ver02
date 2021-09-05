@@ -2,9 +2,20 @@
     background-color: black;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    padding-top: 5em;
+    min-height: 100%;
+    padding-bottom: 30px;
+    position: relative;
+}
+
 .myHr {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
     border-top: 1px solid rgba(138, 138, 138, 0.7);
-  }
+}
