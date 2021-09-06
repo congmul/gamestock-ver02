@@ -38,9 +38,9 @@ function App() {
       currentFakeTime();
     }, 1000)
 
-    // If the time is 18:00, Stop the interval time.
+    // If the time is 18:00, setWeekend is true.
      if(fakeCurrentTime.substring(16, 21) === '18:00'){
-      clearInterval(intervalFakeTime);
+      // clearInterval(intervalFakeTime);
       setWeekend(true);
     }
 
@@ -56,6 +56,19 @@ function App() {
       <AuthProvider>
         <FakeCurrentTimeContext.Provider value={fakeCurrentTime}>
           {/* Display Current Time */}
+          <div style={{ zIndex: 10, fontSize: "11px", color: "white", textAlign: "right", paddingRight: "25px", position: "fixed", top: 90, right: 0 }}>
+            {
+              (new Date().getDay() - 1).toString() === "-1" 
+              ? "TODAY: " + new Date((new Date().getFullYear()).toString(), new Date().getMonth().toString(), (new Date().getDate() - 1).toString()).toString().substring(0, 15)
+              : <></>
+            }
+            {
+              (new Date().getDay() - 1).toString() === "0" 
+              ? "TODAY: " + new Date((new Date().getFullYear()).toString(), new Date().getMonth().toString(), (new Date().getDate() - 1).toString()).toString().substring(0, 15)
+              : <></>
+            }
+            {/* {console.log(new Date((new Date().getFullYear()).toString(), new Date().getMonth().toString(), (new Date().getDate() - 1).toString()).toString().substring(0, 15))} */}
+          </div>
           <div style={{ zIndex: 10, fontSize: "11px", color: "white", textAlign: "right", paddingRight: "25px", position: "fixed", top: 70, right: 0 }}>
             {weekend? "Market close on the Weekend" : fakeCurrentTime.substring(0, 25)}
           </div>
