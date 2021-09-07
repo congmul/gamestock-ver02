@@ -13,7 +13,8 @@ function dataProcessing(stockData, currentFakeTime) {
     let currentValue = 0;
     let days = 0;
     // 86400000 sec (= 1 day )
-    let aDayTomiliSec = 86400000;
+    let aDayTomiliSec = 0;
+    // let aDayTomiliSec = 86400000;
     let fiveHourmiliSec = 18000000;
     // console.log(currentFakeTime);
     for (let date in stockData["Time Series (15min)"]) {
