@@ -43,19 +43,19 @@ export function GetFakeDate() {
   // During Weekend, Display Stock data on last Friday.
   // SUN: 1 / MON: 2 / TUE: 3 / ..... / SAT: -1 
   let currentDay = (new Date().getDay() - 1).toString();
-//   console.log(currentDay);
+  // console.log(currentDay);
   if(currentDay === '-1'){
     today = parseInt(today) - 1;
     today = today.toString();
     hour = 18;
     minute = 0;
   }
-  if(currentDay === '1'){
+  if(currentDay === '0'){
     today = parseInt(today) - 2;
     today = today.toString();
     hour = 18;
     minute = 0;
   }
-//   console.log(today);
+  
   return (new Date(thisYear, thisMonth, today, hour, minute, second));
 }
