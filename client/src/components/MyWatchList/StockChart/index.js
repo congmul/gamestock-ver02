@@ -47,12 +47,14 @@ export default function ChartUser(props) {
                     family: "Raleway",
                     color: "#fff"
                 },
-                width: 100,
-                height: 30,
+                // width: 100,
+                // height: 30,
                 paper_bgcolor: "#000",
                 plot_bgcolor: "#000",
             }}
+            style={{width:"100%", height:30}}
             config={{ displayModeBar: false }}
+            useResizeHandler={ true }
         />
     )
 }

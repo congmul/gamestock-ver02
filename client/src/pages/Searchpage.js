@@ -3,15 +3,14 @@
     2. Show the 10 company depending on user input
     3. Get Stock Data of selected company from alphaVantage API
     4. Check Invalid API call. Display nothing if there is error of invalid API call.
-    4. Pass symbol and company name data to three components, ChartCompanyinfoMain, CompanyInformation, CompanyNews
+    4. Pass symbol and company name data to three components, ChartOnSearchPage, CompanyInformation, CompanyNews
 */
 
 import React, { useState, useEffect } from 'react';
 import API from "../utils/API";
 
-import ChartCompanyinfoMain from '../components/ChartCompanyinfoMain';
+import ChartOnSearchPage from '../components/ChartOnSearchPage';
 import CompanyInformation from '../components/CompanyInformation';
-import CompanyNews from '../components/CompanyNews';
 import Autocomplete from "react-autocomplete";
 
 export default function Search() {
@@ -106,9 +105,8 @@ export default function Search() {
             }
             {isSymbol ? (
                 <>
-                    <ChartCompanyinfoMain companyName={searchResult["companyName"]} symbol={searchResult["symbol"]} />
+                    <ChartOnSearchPage companyName={searchResult["companyName"]} symbol={searchResult["symbol"]} />
                     <CompanyInformation symbol={searchResult["symbol"]} />
-                    <CompanyNews symbol={searchResult["symbol"]} />
                 </>
             ) : (<div style={{ textAlign: "center", color: "white", paddingTop: "100px" }}>Search by Company name or Symbol</div>)}
 
