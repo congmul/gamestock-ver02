@@ -70,7 +70,7 @@ function App() {
             {/* {console.log(new Date((new Date().getFullYear()).toString(), new Date().getMonth().toString(), (new Date().getDate() - 1).toString()).toString().substring(0, 15))} */}
           </div>
           <div style={{ zIndex: 10, fontSize: "11px", color: "white", textAlign: "right", paddingRight: "25px", position: "fixed", top: 70, right: 0 }}>
-            {weekend? "Market close on the Weekend" : fakeCurrentTime.substring(0, 25)}
+            {weekend? "Market close on the Weekend" : "TODAY: " + fakeCurrentTime.substring(0, 25)}
           </div>
           <Nav />
           <Container>
