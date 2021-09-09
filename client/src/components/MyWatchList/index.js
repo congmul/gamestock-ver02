@@ -6,7 +6,8 @@ import API from '../../utils/API';
 import { useAuth } from '../../contexts/AuthContext';
 import FakeCurrentTimeContext from '../../contexts/FakeCurrentTimeContext'
 
-import StockChart from './StockChart';
+// import StockChart from './StockChart';
+import ChartPlotly from "../ChartPlotly";
 import stockDataProcessing from './GetMarketDataForWatchList';
 import { useHistory } from "react-router-dom";
 
@@ -101,7 +102,8 @@ export default function MyWatchList() {
                                 </Row>
                             </Col>
                             <Col className="text-center" style={{ margin: "auto" }}>
-                                <StockChart company={company} />
+                                {/* <StockChart company={company} /> */}
+                                <ChartPlotly company={company} style={{width:"100%", height:30}} />
                             </Col>
                             <Col className="text-right" style={{ margin: "auto" }}>
                                 ${parseFloat(company.price).toFixed(2)}
