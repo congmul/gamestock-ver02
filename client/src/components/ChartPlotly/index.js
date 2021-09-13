@@ -2,9 +2,10 @@ import React from 'react'
 import Plot from 'react-plotly.js';
 
 
-export default function ChartUser(props) {
-    // console.log("In ChartUserInfo")
+export default function ChartPlotly(props) {
+    // console.log("In ChartPlotlyInfo")
     // console.log(props.company.graphData)
+    // console.log(props.style)
 
     return (
         <Plot
@@ -27,7 +28,7 @@ export default function ChartUser(props) {
                     t: 0
                 },
                 xaxis: {
-                    // TODO:get range date!!,
+                    // get range date!!,
                     range: [props.company.graphData.x[0], props.company.graphData.x[props.company.graphData.x.length -1]],
                     rangeslider: {
                         visible: false
@@ -47,12 +48,10 @@ export default function ChartUser(props) {
                     family: "Raleway",
                     color: "#fff"
                 },
-                // width: 100,
-                // height: 30,
                 paper_bgcolor: "#000",
                 plot_bgcolor: "#000",
             }}
-            style={{width:"100%", height:30}}
+            style={ props.style }
             config={{ displayModeBar: false }}
             useResizeHandler={ true }
         />

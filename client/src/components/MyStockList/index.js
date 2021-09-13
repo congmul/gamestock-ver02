@@ -8,7 +8,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import FakeCurrentTimeContext from '../../contexts/FakeCurrentTimeContext'
 // import { NumberComma } from '../../utils/helpers';
 
-import StockChart from './StockChart';
+// import StockChart from './StockChart';
+import ChartPlotly from '../ChartPlotly';
 import stockDataProcessing from './GetMarketDataForStockList';
 
 import "./style.scss";
@@ -89,7 +90,8 @@ export default function MyStockList() {
                                 </Row>
                             </Col>
                             <Col className="text-center" style={{ margin: "auto" }}>
-                                <StockChart company={company} />
+                                {/* <StockChart company={company} /> */}
+                                <ChartPlotly company={company} style={{width:"100%", height:30}}/>
                             </Col>
                             <Col className="text-right " style={{ margin: "auto" }}>
                                 <Row className="justify-content-end" style={{ margin: "auto" }}>
