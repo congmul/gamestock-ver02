@@ -6,7 +6,6 @@ import API from '../../utils/API';
 import { useAuth } from '../../contexts/AuthContext';
 import FakeCurrentTimeContext from '../../contexts/FakeCurrentTimeContext'
 
-// import StockChart from './StockChart';
 import ChartPlotly from "../ChartPlotly";
 import stockDataProcessing from './GetMarketDataForWatchList';
 import { useHistory } from "react-router-dom";

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import ChartUser from './ChartUser';
 import { Link, useLocation } from "react-router-dom";
 import { Row, Col } from 'react-bootstrap';
 
@@ -7,6 +6,8 @@ import UserPageAPI from '../../utils/UserPageAPI';
 import { useAuth } from '../../contexts/AuthContext';
 import FakeCurrentTimeContext from '../../contexts/FakeCurrentTimeContext'
 
+import ChartUser from './ChartUser';
+import ChartPlotly from '../ChartPlotly';
 
 import { GetIntraDayFirstGraphData, GetIntraDayGraphData } from "./GetIntraDayGraphData";
 import GetOneWeekGraphData from './GetOneWeekGraphData';
@@ -78,7 +79,7 @@ export default function ChartUserInfo() {
     }, [])
 
     useEffect(() => {
-        // console.log("totalInvestmentState changed")
+        // console.log(totalInvestmentState)
     }, [totalInvestmentState]) // All Market data for Graph
 
 
@@ -992,6 +993,9 @@ export default function ChartUserInfo() {
             <div style={{ margin: "0 -15px" }}>{
                 (totalInvestmentState) ? (<ChartUser totalInvestmentState={totalInvestmentState} />) : (<div style={{ textAlign: "center", margin: "50px 0" }}><h1>No Stock Data</h1></div>)
             }
+             {/* <div style={{ margin: "0 -15px" }}>{
+                (totalInvestmentState) ? (<ChartPlotly company={totalInvestmentState} />) : (<div style={{width:"100%", height:200}}><h1>No Stock Data</h1></div>)
+            } */}
 
             </div>
             <Row>

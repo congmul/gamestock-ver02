@@ -8,7 +8,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import FakeCurrentTimeContext from '../../contexts/FakeCurrentTimeContext'
 // import { NumberComma } from '../../utils/helpers';
 
-import StockChart from './StockChart';
+// import StockChart from './StockChart';
 import ChartPlotly from '../ChartPlotly';
 import stockDataProcessing from './GetMarketDataForStockList';
 
