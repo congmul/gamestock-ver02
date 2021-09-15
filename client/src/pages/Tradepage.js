@@ -1,16 +1,16 @@
 /* 
-    Display Trading Form, components/Form
+    Display Trading Form, components/PurchaseForm
  */
 
 import React from 'react';
-import Form from "../components/Form";
+import PurchaseForm from "../components/PurchaseForm";
 import UserFormContainer from '../components/UserFormContainer'
 
 export default function Tradepage() {
     return (
         <UserFormContainer>
             <div>
-                <Form />
+                <PurchaseForm />
             </div>
         </UserFormContainer>
     )
