@@ -1,14 +1,16 @@
+/* 
+    Display Trading Form, components/PurchaseForm
+ */
+
 import React from 'react';
-import { Link } from "react-router-dom";
-import Form from "../components/Form";
+import PurchaseForm from "../components/PurchaseForm";
 import UserFormContainer from '../components/UserFormContainer'
 
 export default function Tradepage() {
     return (
         <UserFormContainer>
             <div>
-                <Form />
-                {/* add modals to confirm, or confirmation page content? */}
+                <PurchaseForm />
             </div>
         </UserFormContainer>
     )
