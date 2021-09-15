@@ -1,8 +1,15 @@
 /* 
-    1. 
+    1. Get Company lists with symbol from DB
+    2. Show the 10 company depending on user input
+    3. Get Current Market value of selected company from alphaVantage API
+    4. Check Invalid API call. Display 'Invalid COMPANYNAME' if there is error of invalid API call.
+    4. Display current market price next Market price label.
+    5. Calculate Total price depending on Amount.
+    6. Update User DB with buying or selling Stock.
 */
 
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import "./style.scss";
 import API from '../../utils/API'
 import { useAuth } from '../../contexts/AuthContext'
@@ -14,10 +21,10 @@ export default function PurchaseForm() {
     const [searchInput, setSearchInput] = useState();
     const [searchListFromDB, setSearchListFromDB] = useState();
     const [searchList, setSearchList] = useState([]);
-    // const [searchResult, setSearchResult] = useState({ "symbol": "", "companyName": "" });
-    // const [isSymbol, setIsSymbol] = useState(false);
+    const [isCurrentPrice, setIsCurrentPrice] = useState(false);
 
-    // const history = useHistory();
+    const history = useHistory();
+
     const [formObject, setFormObject] = useState({
         symbol: "",
         amount: 0
@@ -100,9 +107,19 @@ export default function PurchaseForm() {
     function GetCurrentPrice(symbol) {
         API.getCurrentPrice(symbol)
             .then(res => {
-                setCurrentPrice(parseFloat(res.data['Global Quote']['05. price']).toFixed(2))
+                if(res.data['Global Quote']['05. price'] === undefined){
+                    setIsCurrentPrice(false);
+                    setMessage(`Invalid company: ${symbol}`)
+                    setTimeout(function() {setMessage()}, 3000);
+                }else{
+                    setIsCurrentPrice(true);
+                    setCurrentPrice(parseFloat(res.data['Global Quote']['05. price']).toFixed(2))
+                }
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                setIsCurrentPrice(false);
+                console.log(err)
+            })
     }
 
     useEffect(() => {
@@ -133,8 +150,9 @@ export default function PurchaseForm() {
                     .then(res => setMessage(`Successfully bought ${formObject.amount} ${formObject.symbol.toUpperCase().trim()} shares`))
                     .catch(err => console.log(err))
 
-                // setMessage(`Successfully bought ${formObject.amount} ${formObject.symbol.toUpperCase().trim()} shares`)
-                // history.push("/gamestock/user")
+                // Go to gamestock/user after 2 second.
+                setTimeout(function() {history.push("/gamestock/user")}, 2000);
+                
             }
         }
         if (buyOrSell === "sell") {
@@ -154,8 +172,9 @@ export default function PurchaseForm() {
                 })
                     .then(data => setMessage(`Successfully sold ${formObject.amount} ${formObject.symbol.toUpperCase().trim()} shares`))
                     .catch(err => console.log(err))
-                // setMessage(`Successfully sold ${formObject.amount} ${formObject.symbol.toUpperCase().trim()} shares`)
-                // history.push("/gamestock/user")
+                
+                // Go to gamestock/user after 2 second.
+                setTimeout(function() {history.push("/gamestock/user")}, 2000);
             }
         }
     }
@@ -191,7 +210,7 @@ export default function PurchaseForm() {
                                 })
                             }}
                         />
-                        <div id="previewPrice" className="form-text text-muted">Market price: {currentPrice? '$' + currentPrice: <></>}</div>
+                        <div id="previewPrice" className="form-text text-muted">Market price: {currentPrice? (isCurrentPrice? '$' + currentPrice: 'Invalid Compnay') : <></>}</div>
                     </Form.Group>
                     <Form.Group id="amount">
                         <Form.Label>Amount</Form.Label>
