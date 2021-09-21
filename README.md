@@ -1,16 +1,17 @@
 # GameStock
 
-![Userpage](assets/user.png) ![Searchpage](assets/search.png)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!-- ![Userpage](assets/user.png) ![Searchpage](assets/search.png) -->
 
 [See the deployment](https://evening-temple-09944.herokuapp.com/)  
-[Explore the docs](https://github.com/congmul/gamestock-ver02)
+[Explore the code](https://github.com/congmul/gamestock-ver02)
+
+<img src='assets/user.png' width='300px' height='400px' />
+<img src='assets/search.png' width='300px' height='400px' />
 
 ---
 
 ## Table of Contents
-
 - [About the Project](#About-the-Project)
 - [Usage](#Usage)
 - [Getting Started](#Getting-Started)
