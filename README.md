@@ -57,8 +57,5 @@ This application is covered under the MIT license
 
 For any questions, please reach out by creating an issue.
 
-Developer's Repos  
-[lexi jack](http://github.com/puakehaulani)  
+Developer's Repos
 [Jehyun Jung](https://github.com/congmul)  
-[Girma Ebssa](https://github.com/girmaD)  
-[Olga Illarionova](https://github.com/Myau5x)
